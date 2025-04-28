@@ -55,99 +55,81 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(120deg, #1f4037, #99f2c8);
-            background-size: 300% 300%;
-            animation: gradientShift 10s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            background-color:rgb(10, 146, 164); /* Simple soft background color */
         }
 
         .register-container {
-            backdrop-filter: blur(20px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 40px;
+            background-color:rgb(102, 229, 246); /* Simple soft background color */
+            border-radius: 10px;
+            padding: 30px;
             width: 100%;
             max-width: 420px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            color: white;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #ffffffdd;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
         }
 
         .form-group {
             position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-group input {
             width: 100%;
-            padding: 12px 40px 12px 14px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            color: #333;
             font-size: 1rem;
             transition: background 0.3s ease;
         }
 
         .form-group input:focus {
             outline: none;
-            background: rgba(255, 255, 255, 0.2);
+            background: #e9e9e9;
         }
 
         .form-group i {
             position: absolute;
             top: 50%;
-            right: 14px;
+            right: 10px;
             transform: translateY(-50%);
-            color: #ffffff88;
+            color: #aaa;
         }
 
         .register-btn {
             width: 100%;
-            padding: 14px;
-            background: #00c9a7;
+            padding: 12px;
+            background: #4caf50;
             border: none;
-            border-radius: 10px;
+            border-radius: 5px;
             color: white;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s;
+            transition: background 0.3s ease;
         }
 
         .register-btn:hover {
-            background: #00b89d;
-            transform: translateY(-2px);
+            background: #45a049;
         }
 
         .error-message {
-            color: #ff6b6b;
-            font-size: 0.95rem;
+            color: #f44336;
+            font-size: 0.9rem;
             text-align: center;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         @media (max-width: 480px) {
             .register-container {
-                padding: 30px 20px;
+                padding: 25px 15px;
             }
 
             h2 {
@@ -158,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 </head>
 <body>
     <div class="register-container">
-        <h2>Create Account ✨</h2>
+        <h2>Create Account</h2>
         <form method="POST">
             <div class="form-group">
                 <input type="text" name="username" placeholder="Username" required>

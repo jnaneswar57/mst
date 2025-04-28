@@ -1,15 +1,14 @@
 <?php
 session_start();
-include 'includes/db.php'; // Include the database connection
+include 'includes/db.php'; 
 
 // Handle logout functionality
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
-    session_unset();  // Unset all session variables
-    session_destroy(); // Destroy the session
-    header("Location: index.php"); // Redirect to login page
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
     exit();
 }
-
 
 $user_logged_in = isset($_SESSION['user_id']);
 $username = "";
@@ -34,16 +33,17 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Store</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Stationery Store</title>
+    <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="header-container">
-            <h1>Stationary Store</h1>
+            <h1> Stationery Store</h1>
             <nav>
                 <?php if ($user_logged_in) : ?>
-                    <span>Welcome, <?= $username; ?>!</span>
+                    <span class="welcome-text">Hello, <?= $username; ?>!</span>
                     <a href="pages/cart.php" class="cart-link">
                         <img src="images/cart-icon.png" alt="Cart" class="cart-icon">
                         Cart
@@ -58,22 +58,23 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </nav>
         </div>
     </header>
-    <div class="main-container">
-    <main>
-            <h2>Products</h2>
+
+    <!-- Main Section -->
+    <main class="main-container">
+        <section class="product-section">
+            <h2 class="section-title">Our Products</h2>
             <div class="product-list">
-                <!-- PHP to display products -->
                 <?php if (empty($products)) : ?>
                     <p>No products available.</p>
                 <?php else : ?>
                     <?php foreach ($products as $product) : ?>
-                        <div class="product">
-                            <h3><?= htmlspecialchars($product['name']); ?></h3>
-                            <p>Price: $<?= number_format($product['price'], 2); ?></p>
-                            <p><?= htmlspecialchars($product['description']); ?></p>
+                        <div class="product-card">
                             <?php if (!empty($product['image'])) : ?>
                                 <img src="images/<?= htmlspecialchars($product['image']); ?>" alt="<?= htmlspecialchars($product['name']); ?>" class="product-image">
                             <?php endif; ?>
+                            <h3 class="product-name"><?= htmlspecialchars($product['name']); ?></h3>
+                            <p class="product-description"><?= htmlspecialchars($product['description']); ?></p>
+                            <p class="product-price">$<?= number_format($product['price'], 2); ?></p>
                             <form method="POST" action="pages/cart.php">
                                 <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
                                 <button type="submit" name="add_to_cart" class="add-to-cart-button">Add to Cart</button>
@@ -82,12 +83,12 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
-        </main>
+        </section>
+    </main>
 
-
-    </div>
+    <!-- Footer -->
     <footer>
-        <p>&copy; <?= date('Y'); ?> Online Store. All rights reserved.</p>
+        <p>&copy; <?= date('Y'); ?> Stationery Store. All rights reserved.</p>
     </footer>
 </body>
 </html>

@@ -1,0 +1,186 @@
+/* Resetting margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Full height for the body and html */
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('background2.jpg') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #6b8e23;
+    text-decoration: underline;
+}
+
+/* Hero Content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-content h1 {
+    font-size: 80px;
+    color: #2c5f2d; /* Dark green */
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content p {
+    font-size: 22px;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #f2f2f2;
+}
+
+/* Shop Button */
+.shop-button {
+    display: inline-block;
+    background-color: #6b8e23;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.shop-button:hover {
+    background-color: #556b2f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about-section {
+    background-color: #f9f9f9;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-container h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c5f2d;
+}
+
+.about-container p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #2c5f2d;
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-container h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-content h1 {
+        font-size: 60px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .shop-button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .about-container h2,
+    .contact-container h2 {
+        font-size: 28px;
+    }
+
+    .about-container p,
+    .contact-container p {
+        font-size: 16px;
+    }
+}
